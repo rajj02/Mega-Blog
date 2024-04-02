@@ -2,7 +2,8 @@ import React from 'react'
 
 function Logo({width = '100px'}) {
   return (
-    <div>Logo</div>
+    // <div>Logo</div>
+    <img width = '100px'src="./blog.jpg"/>
   )
 }
 

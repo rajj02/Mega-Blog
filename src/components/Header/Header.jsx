@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 function Header(){
     const authStatus = useSelector((state) => state.auth.status)
     const navigate = useNavigate()
-
+    const user = useSelector((data) => data.auth);
+    // console.log('hi this is user data :' ,user.userData.name);
     const navItems = [
         {
           name: 'Home',
@@ -37,14 +38,23 @@ function Header(){
       ]
 
     return (
-        <header className='py-3 shadow bg-gray-500'>
+        <header className='py-3 shadow bg-gradient-to-r from-sky-300 to-purple-500'>
         <Container>
           <nav className='flex'>
             <div className='mr-4'>
               <Link to='/'>
+                <div className='flex ml-auto'>
                 <Logo width='70px'   />
-  
+                {
+                  authStatus && 
+                  <h1>{user.userData.name}</h1>
+                }
+               
+
+                </div>
+                
                 </Link>
+               
             </div>
             <ul className='flex ml-auto'>
               {navItems.map((item) => 
